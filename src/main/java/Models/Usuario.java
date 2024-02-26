@@ -8,6 +8,7 @@ public class Usuario {
     private String email;
     private float saldo;
 
+
     public Usuario(long idUser, String nmUser, short nroSenha, int nroFone, String email, float saldo) {
         this.idUser = idUser;
         this.nmUser = nmUser;
@@ -16,6 +17,7 @@ public class Usuario {
         this.email = email;
         this.saldo = saldo;
     }
+
 
     public long getIdUser() {
         return idUser;
@@ -65,7 +67,21 @@ public class Usuario {
         this.saldo = saldo;
     }
 
-    public float visualizarSaldo(){
-        return saldo;
+
+    public static void main(String[] args) {
+        testarUsuario();
+    }
+
+    public static void testarUsuario() {
+        Usuario usuario = new Usuario(1, "João", (short)1234, 12345678, "joao@example.com", 100.0f);
+
+
+        System.out.println("Informações do Usuário:");
+        System.out.println("ID: " + usuario.getIdUser());
+        System.out.println("Nome: " + usuario.getNmUser());
+        System.out.println("Senha: " + usuario.getNroSenha());
+        System.out.println("Telefone: " + usuario.getNroFone());
+        System.out.println("Email: " + usuario.getEmail());
+        System.out.println("Saldo: " + usuario.getSaldo());
     }
 }

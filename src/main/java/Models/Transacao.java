@@ -1,33 +1,63 @@
 package Models;
 
 public class Transacao {
-    private short idTransacao;
-    private int dtTransacao;
-    private int valorTransacao;
-    private int nmCategoria;
+    private int idTransacao;
+    private float valor;
+    private String descricao;
+    private int idUsuario;
 
-    public Transacao(short idTransacao, int dtTransacao, int valorTransacao, int nmCategoria){
+
+    public Transacao(int idTransacao, float valor, String descricao, int idUsuario) {
         this.idTransacao = idTransacao;
-        this.dtTransacao = dtTransacao;
-        this.valorTransacao = valorTransacao;
-        this.nmCategoria = nmCategoria;
+        this.valor = valor;
+        this.descricao = descricao;
+        this.idUsuario = idUsuario;
     }
 
-    public short getIdTransacao() {
+
+    public int getIdTransacao() {
         return idTransacao;
     }
 
-    public int getDtTransacao() {
-        return dtTransacao;
+    public void setIdTransacao(int idTransacao) {
+        this.idTransacao = idTransacao;
     }
 
-    public int getValorTransacao() {
-        return valorTransacao;
+    public float getValor() {
+        return valor;
     }
 
-    public int getNmCategoria() {
-        return nmCategoria;
+    public void setValor(float valor) {
+        this.valor = valor;
     }
 
+    public String getDescricao() {
+        return descricao;
+    }
 
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public static void main(String[] args) {
+        testarTransacao();
+    }
+
+    public static void testarTransacao() {
+        Transacao transacao = new Transacao(1, 100.0f, "Compra de alimentos", 1);
+
+        System.out.println("Informações da Transação:");
+        System.out.println("ID: " + transacao.getIdTransacao());
+        System.out.println("Valor: " + transacao.getValor());
+        System.out.println("Descrição: " + transacao.getDescricao());
+        System.out.println("ID do Usuário: " + transacao.getIdUsuario());
+    }
 }
