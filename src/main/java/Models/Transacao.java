@@ -30,10 +30,4 @@ public class Transacao {
     }
 
 
-    public void visualizarTransacao() {
-        System.out.println("ID da Transação: " + idTransacao);
-        System.out.println("Data da Transação: " + dtTransacao);
-        System.out.println("Valor da Transação: " + valorTransacao);
-        System.out.println("Nome da Categoria: " + nmCategoria);
-    }
 }

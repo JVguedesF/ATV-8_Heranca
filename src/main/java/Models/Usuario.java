@@ -18,16 +18,6 @@ public class Usuario {
         this.saldo = saldo;
     }
 
-    public Usuario(String nmUser, short nroSenha, int nroFone, String email, float saldo) {
-
-        this.nmUser = nmUser;
-        this.nroSenha = nroSenha;
-        this.nroFone = nroFone;
-        this.email = email;
-        this.saldo = saldo;
-    }
-
-
 
     public long getIdUser() {
         return idUser;

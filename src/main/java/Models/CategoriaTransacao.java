@@ -9,10 +9,4 @@ public class CategoriaTransacao {
         this.idCategoria = idCategoria;
     }
 
-
-
-    public void visualizarCategoriaTransacao() {
-        System.out.println("ID da Categoria: " + idCategoria);
-        System.out.println("Nome da Categoria: " + nomeCategoria);
-    }
 }
