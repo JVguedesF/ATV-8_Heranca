@@ -9,7 +9,6 @@ public class Usuario {
     private float saldo;
 
     public Usuario(long idUser, String nmUser, short nroSenha, int nroFone, String email, float saldo) {
-
         this.idUser = idUser;
         this.nmUser = nmUser;
         this.nroSenha = nroSenha;
@@ -17,7 +16,6 @@ public class Usuario {
         this.email = email;
         this.saldo = saldo;
     }
-
 
     public long getIdUser() {
         return idUser;
@@ -71,4 +69,3 @@ public class Usuario {
         return saldo;
     }
 }
-
