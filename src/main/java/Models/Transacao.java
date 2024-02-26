@@ -1,10 +1,10 @@
 package Models;
 
 public class Transacao {
-    private int idTransacao;
-    private float valor;
-    private String descricao;
-    private int idUsuario;
+    private static int idTransacao;
+    private static float valor;
+    private static String descricao;
+    private static int idUsuario;
 
 
     public Transacao(int idTransacao, float valor, String descricao, int idUsuario) {
@@ -54,10 +54,11 @@ public class Transacao {
     public static void testarTransacao() {
         Transacao transacao = new Transacao(1, 100.0f, "Compra de alimentos", 1);
 
-        System.out.println("Informações da Transação:");
-        System.out.println("ID: " + transacao.getIdTransacao());
-        System.out.println("Valor: " + transacao.getValor());
-        System.out.println("Descrição: " + transacao.getDescricao());
-        System.out.println("ID do Usuário: " + transacao.getIdUsuario());
+        System.out.println("------Informações da Transação------");
+        System.out.println("ID da Transação: " + idTransacao);
+        System.out.println("Valor: " + valor);
+        System.out.println("Descrição: " + descricao);
+        System.out.println("ID do Usuário: " + idUsuario);
+        System.out.println();
     }
 }

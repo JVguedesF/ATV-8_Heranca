@@ -1,12 +1,12 @@
 package Models;
 
 public class Usuario {
-    private long idUser;
-    private String nmUser;
-    private short nroSenha;
-    private int nroFone;
-    private String email;
-    private float saldo;
+    private static long idUser;
+    private static String nmUser;
+    private static short nroSenha;
+    private static int nroFone;
+    private static String email;
+    private static float saldo;
 
 
     public Usuario(long idUser, String nmUser, short nroSenha, int nroFone, String email, float saldo) {
@@ -76,12 +76,13 @@ public class Usuario {
         Usuario usuario = new Usuario(1, "João", (short)1234, 12345678, "joao@example.com", 100.0f);
 
 
-        System.out.println("Informações do Usuário:");
-        System.out.println("ID: " + usuario.getIdUser());
-        System.out.println("Nome: " + usuario.getNmUser());
-        System.out.println("Senha: " + usuario.getNroSenha());
-        System.out.println("Telefone: " + usuario.getNroFone());
-        System.out.println("Email: " + usuario.getEmail());
-        System.out.println("Saldo: " + usuario.getSaldo());
+        System.out.println("------Informações do Usuário------");
+        System.out.println("ID: " + idUser);
+        System.out.println("Nome: " + nmUser);
+        System.out.println("Senha: " + nroSenha);
+        System.out.println("Telefone: " + nroFone);
+        System.out.println("Email: " + email);
+        System.out.println("Saldo: " + saldo);
+        System.out.println();
     }
 }

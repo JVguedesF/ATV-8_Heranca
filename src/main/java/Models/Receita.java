@@ -1,16 +1,18 @@
 package Models;
 
 public class Receita {
-    private int idReceita;
-    private float valor;
-    private String descricao;
-    private int idUsuario;
+    private static int idReceita;
+    private static float valor;
+    private static String descricao;
+    private static int idUsuario;
+    private static String data;
 
     public Receita(int idReceita, float valor, String descricao, int idUsuario) {
         this.idReceita = idReceita;
         this.valor = valor;
         this.descricao = descricao;
         this.idUsuario = idUsuario;
+        this.data= data;
     }
 
     public int getIdReceita() {
@@ -29,6 +31,10 @@ public class Receita {
         return idUsuario;
     }
 
+    public String getData() {
+        return data;
+    }
+
     // Métodos de teste
     public static void main(String[] args) {
         testarReceita();
@@ -37,11 +43,13 @@ public class Receita {
     public static void testarReceita() {
         Receita receita = new Receita(1, 500.0f, "Salário", 1);
 
-        // Exibir informações da receita
-        System.out.println("Informações da Receita:");
-        System.out.println("ID: " + receita.getIdReceita());
-        System.out.println("Valor: " + receita.getValor());
-        System.out.println("Descrição: " + receita.getDescricao());
-        System.out.println("ID do Usuário: " + receita.getIdUsuario());
+
+        System.out.println("------Informações da Receita------");
+        System.out.println("ID da Receita: " + idReceita);
+        System.out.println("Valor: " + valor);
+        System.out.println("Descrição: " + descricao);
+        System.out.println("Data: " + data);
+        System.out.println("ID do Usuário: " + idUsuario);
+        System.out.println();
     }
 }

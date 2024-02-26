@@ -1,8 +1,8 @@
 package Models;
 
 public class CategoriaTransacao {
-    private int idCategoria;
-    private String nome;
+    private static int idCategoria;
+    private static String nome;
 
     public CategoriaTransacao(int idCategoria, String nome) {
         this.idCategoria = idCategoria;
@@ -26,8 +26,9 @@ public class CategoriaTransacao {
         CategoriaTransacao categoria = new CategoriaTransacao(1, "Alimentação");
 
 
-        System.out.println("Informações da Categoria de Transação:");
-        System.out.println("ID: " + categoria.getIdCategoria());
-        System.out.println("Nome: " + categoria.getNome());
+        System.out.println("------Informações da Categoria de Transação------");
+        System.out.println("ID da Categoria: " + idCategoria);
+        System.out.println("Nome: " + nome);
+        System.out.println();
     }
 }
