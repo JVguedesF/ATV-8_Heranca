@@ -4,8 +4,8 @@ public class Relatorio extends Transacao {
     private String titulo;
     private String descricao;
 
-    public Relatorio(int idTransacao, float valor, String descricao, int idUsuario, String titulo, String descricaoRelatorio) {
-        super(idTransacao, valor, descricao, idUsuario);
+    public Relatorio(int idTransacao, float valor, String descricao, int idUsuario, String titulo, String descricaoRelatorio, String data) {
+        super(idTransacao, valor, descricao, idUsuario, data);
         this.titulo = titulo;
         this.descricao = descricaoRelatorio;
     }
@@ -31,15 +31,16 @@ public class Relatorio extends Transacao {
     }
 
     public static void testarRelatorio() {
-        Relatorio relatorio = new Relatorio(1, 100.0f, "Descrição da transação", 1, "Relatório Mensal", "Relatório de despesas do mês de janeiro");
+        Relatorio relatorio = new Relatorio(1, 100.0f, "Descrição da transação", 1, "Relatório Mensal", "Relatório de despesas do mês de janeiro", "08/04/2024");
 
         System.out.println("------Informações do Relatório------");
         System.out.println("ID da Transação: " + relatorio.getIdTransacao());
         System.out.println("Valor: " + relatorio.getValor());
         System.out.println("Descrição: " + relatorio.getDescricao());
-        System.out.println("ID do Usuário: " + relatorio.getIdUsuario());
+        System.out.println("Usuário: " + relatorio.getIdUsuario());
         System.out.println("Título: " + relatorio.getTitulo());
         System.out.println("Descrição do Relatório: " + relatorio.getDescricaoRelatorio());
+        System.out.println("Data: " + relatorio.getData());
         System.out.println();
     }
 }
