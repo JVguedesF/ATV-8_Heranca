@@ -1,8 +1,8 @@
 package Models;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+import java.util.Scanner;
 
 public class Transacao {
     private static int idCounter = 1;
@@ -28,51 +28,73 @@ public class Transacao {
         return valor;
     }
 
+    protected void setValor(double novoValor) {
+        this.valor = novoValor;
+    }
+
     public String getInfo() {
         return info;
     }
 
-    public long getIdUsuario() {
-        return idUsuario;
+    protected void setInfo(String novaDescricao) {
+        this.info = novaDescricao;
     }
 
     public String getData() {
         return data;
     }
 
+    protected void setData(String novaData) {
+        this.data = novaData;
+    }
+
+    public long getIdUsuario() {
+        return idUsuario;
+    }
 
 
     public static List<Transacao> transacoes = new ArrayList<>();
-
     public static void cadastrarTransacao(Transacao transacao) {
         transacoes.add(transacao);
     }
 
-    public static void atualizarTransacao(int idTransacao, double novoValor, String novaDescricao, String novaData) {
-        for (Transacao transacao : transacoes) {
-            if (transacao.getIdTransacao() == idTransacao) {
-                transacao.valor = novoValor;
-                transacao.info = novaDescricao;
-                transacao.data = novaData;
-                return;
-            }
+    public static void visualizarTransacao(List<Transacao> transacoes){
+        System.out.println("------ Lista de Transações ------");
+        for (Transacao transacao : transacoes){
+            System.out.println("transação " + transacao.getIdTransacao() + ":");
+            System.out.println("Valor:" + transacao.getValor());
+            System.out.println("Descriçao:" + transacao.getInfo());
+            System.out.println("Data:" + transacao.getData());
+            System.out.println();
         }
     }
 
+    public static void atualizarTransacao(int idTransacao, double novoValor, String novaDescricao, String novaData) {
+        visualizarTransacao(transacoes);
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Atualizando receita com ID " + idTransacao + "...");
+        for (Transacao transacao : transacoes) {
+            if (transacao.getIdTransacao() == idTransacao) {
+                transacao.setValor(novoValor);
+                transacao.setInfo(novaDescricao);
+                transacao.setData(novaData);
+                System.out.println();
+                System.out.println("Transação atualizada com sucesso!");
+                System.out.println();
+                return;
+            }
+        }
+        System.out.println("Transação com ID " + idTransacao + " não encontrada. Nenhuma atualização realizada.");
+    }
+
     public static void deletarTransacao(int idTransacao) {
+        visualizarTransacao(transacoes);
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Excluindo Transação com ID " + idTransacao+ "...");
         transacoes.removeIf(transacao -> transacao.getIdTransacao() == idTransacao);
+        System.out.println("Transação excluída com sucesso!");
     }
 
-
-    public static void testarTransacao() {
-        Transacao transacao = new Transacao(1, 100.0d, "Compra de alimentos", 1, "25/02/2024");
-
-        System.out.println("------Informações da Transação------");
-        System.out.println("ID da Transação: " + transacao.getIdTransacao());
-        System.out.println("ID do Usuário: " + transacao.getIdUsuario());
-        System.out.println("Valor: " + transacao.getValor());
-        System.out.println("Descrição: " + transacao.getInfo());
-        System.out.println("Data: " + transacao.getData());
-        System.out.println();
-    }
 }

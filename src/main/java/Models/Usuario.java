@@ -2,6 +2,7 @@ package Models;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Usuario {
     private static long idCounter = 1;
@@ -11,11 +12,10 @@ public class Usuario {
     private int nroFone;
     private String email;
     private float saldo;
-    private double metaInvestimento;
     private int cpf;
 
 
-    public Usuario(String nmUser, String nroSenha, int nroFone, String email, float saldo, double metaInvestimento, int cpf) {
+    public Usuario(String nmUser, String nroSenha, int nroFone, String email, float saldo, int cpf) {
         this.cpf = cpf;
         this.idUser = idCounter++;
         this.nmUser = nmUser;
@@ -23,16 +23,6 @@ public class Usuario {
         this.nroFone = nroFone;
         this.email = email;
         this.saldo = saldo;
-        this.metaInvestimento = metaInvestimento;
-    }
-
-    public static Usuario getUsuariobyID(long idUser) {
-        for (Usuario usuario : usuarios) {
-            if (usuario.getIdUser() == idUser) {
-                return usuario;
-            }
-        }
-        return null;
     }
 
 
@@ -60,12 +50,18 @@ public class Usuario {
         return saldo;
     }
 
-    public double getMetaInvestimento() {
-        return metaInvestimento;
-    }
-
     public int getCpf() {
         return cpf;
+    }
+
+
+    public static Usuario getUsuariobyID(long idUser) {
+        for (Usuario usuario : usuarios) {
+            if (usuario.getIdUser() == idUser) {
+                return usuario;
+            }
+        }
+        return null;
     }
 
     public static List<Usuario> usuarios = new ArrayList<>();
@@ -74,53 +70,54 @@ public class Usuario {
         usuarios.add(usuario);
     }
 
+    public static void visualizarUsuario(List<Usuario> usuarios){
+        System.out.println("------ Informação de Perfil ------");
+        for (Usuario usuario : usuarios){
+            System.out.println("ID: " + usuario.getIdUser());
+            System.out.println("Nome: " + usuario.getNmUser());
+            System.out.println("Cpf: " + usuario.getCpf());
+            System.out.println("Email: " + usuario.getEmail());
+            System.out.println("Senha: " + usuario.getNroSenha());
+            System.out.println("Telefone: " + usuario.getNroFone());
+            System.out.println();
+        }
+
+    }
+
     public static void atualizarUsuario(long idUser, String novoNroSenha, int novoNroFone, String novoEmail, float novoSaldo, double novaMetaInvestimento, int novoCpf) {
+
+        visualizarUsuario(usuarios);
+
+        Scanner scanner = new Scanner(System.in);
         for (Usuario usuario : usuarios) {
             if (usuario.getIdUser() == idUser) {
                 usuario.nroSenha = novoNroSenha;
                 usuario.nroFone = novoNroFone;
                 usuario.email = novoEmail;
                 usuario.saldo = novoSaldo;
-                usuario.metaInvestimento = novaMetaInvestimento;
                 usuario.cpf = novoCpf;
+                System.out.println();
+                System.out.println("Usuario atualizado com sucesso!");
+                System.out.println();
                 return;
             }
         }
     }
 
     public static void deletarUsuario(long idUser) {
+        Scanner scanner = new Scanner(System.in);
         usuarios.removeIf(usuario -> usuario.getIdUser() == idUser);
+        System.out.println("Usuario excluido!");
     }
 
     public static void visualizarNomeESaldo() {
-        System.out.println("------Nome do Usuário e Saldo------");
+        System.out.println("---------Seu saldo:---------");
         for (Usuario usuario : usuarios) {
             System.out.println("Nome: " + usuario.getNmUser());
             System.out.println("Saldo: " + usuario.getSaldo());
             System.out.println();
         }
     }
-
-    public static void testarUsuario() {
-        cadastrarUser(new Usuario("Rafael",  "1234", 759511865, "rafael@email.com", 100000.00f, 12548, 15987465));
-        cadastrarUser(new Usuario("Maria",  "4321", 987654321, "maria@email.com", 200000.00f, 1234, 15987465));
-        cadastrarUser(new Usuario("João",  "5678", 123456789, "joao@email.com", 50000.00f, 1343, 15987465));
-
-        System.out.println("------Informações dos Usuários------");
-        for (Usuario usuario : usuarios) {
-            System.out.println("ID: " + usuario.getIdUser());
-            System.out.println("Nome: " + usuario.getNmUser());
-            System.out.println("Senha: " + usuario.getNroSenha());
-            System.out.println("Telefone: " + usuario.getNroFone());
-            System.out.println("Email: " + usuario.getEmail());
-            System.out.println("Saldo: " + usuario.getSaldo());
-            System.out.println("Meta de Investimento: " + usuario.getMetaInvestimento());
-            System.out.println("Cpf: " + usuario.getCpf());
-            System.out.println();
-        }
-    }
-
-
 
 
 }
