@@ -1,8 +1,5 @@
 package Models;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Investimento {
     private static long idCounter = 1;
     private int idInvestimento;
@@ -61,6 +58,8 @@ public class Investimento {
     public static void setIdCounter(long idCounter) {
         Investimento.idCounter = idCounter;
     }
+
+
 
 
 

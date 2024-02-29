@@ -1,8 +1,5 @@
 package Models;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Cartao {
     private int idCartao;
     private int numeroCartao;
@@ -20,36 +17,31 @@ public class Cartao {
         return idCartao;
     }
 
+    public void setIdCartao(int idCartao) {
+        this.idCartao = idCartao;
+    }
+
     public int getNumeroCartao() {
         return numeroCartao;
     }
 
+    public void setNumeroCartao(int numeroCartao) {
+        this.numeroCartao = numeroCartao;
+    }
+
     public String getBandeiraCartao() {
         return bandeiraCartao;
+    }
+    public void setBandeiraCartao(String bandeiraCartao) {
+        this.bandeiraCartao = bandeiraCartao;
     }
 
     public String getVencimentoCartao() {
         return vencimentoCartao;
     }
 
-    public static List<Cartao> cartoes = new ArrayList<>();
-
-    public static void cadastrarCartao(Cartao cartao){
-        cartoes.add(cartao);
+    public void setVencimentoCartao(String vencimentoCartao) {
+        this.vencimentoCartao = vencimentoCartao;
     }
 
-    public static void atualizarCartao(int idCartao, int numeroCartao, String bandeiraCartao, String vencimentoCartao){
-        for (Cartao cartao: cartoes){
-            if (cartao.getIdCartao() == idCartao){
-                cartao.numeroCartao = numeroCartao;
-                cartao.bandeiraCartao = bandeiraCartao;
-                cartao.vencimentoCartao = vencimentoCartao;
-                return;
-            }
-        }
-    }
-
-    public static void deletrarCartao(int idCartao){
-        cartoes.removeIf(cartao -> cartao.getIdCartao() == idCartao);
-    }
 }
