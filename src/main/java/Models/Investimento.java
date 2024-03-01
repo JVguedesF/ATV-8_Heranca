@@ -1,7 +1,7 @@
 package Models;
 
 public class Investimento {
-    private static long idCounter = 1;
+    private static long idCounter = 0;
     private int idInvestimento;
     private double totalInvestimento;
     private Usuario usuario;
