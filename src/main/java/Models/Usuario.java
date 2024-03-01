@@ -21,6 +21,14 @@ public class Usuario {
         this.saldo = saldo;
     }
 
+    public void atualizarInformacoes(String novoNroSenha, int novoNroFone, String novoEmail, float novoSaldo, int novoCpf) {
+        this.nroSenha = novoNroSenha;
+        this.nroFone = novoNroFone;
+        this.email = novoEmail;
+        this.saldo = novoSaldo;
+        this.cpf = novoCpf;
+    }
+
 
     public long getIdUser() {
         return idUser;
@@ -81,19 +89,13 @@ public class Usuario {
         Usuario.idCounter = idCounter;
     }
 
+    public void atualizarUsuario(String novoNroSenha, int novoNroFone, String novoEmail, float novoSaldo, int novoCpf) {
+        this.nroSenha = novoNroSenha;
+        this.nroFone = novoNroFone;
+        this.email = novoEmail;
+        this.saldo = novoSaldo;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+        this.cpf = novoCpf;
+    }
 
 }

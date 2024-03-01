@@ -4,13 +4,15 @@ public class Investimento {
     private static long idCounter = 1;
     private int idInvestimento;
     private double totalInvestimento;
+    private Usuario usuario;
     private String data;
     private String tipo;
     private double valor;
 
-    public Investimento(double totalInvestimento, String data, String tipo, double valor){
+    public Investimento(Usuario usuario, double totalInvestimento, String data, String tipo, double valor){
         this.idInvestimento = (int) idCounter++;
         this.totalInvestimento = totalInvestimento;
+        this.usuario = usuario;
         this.data = data;
         this.tipo = tipo;
         this.valor = valor;
@@ -60,8 +62,11 @@ public class Investimento {
     }
 
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
 
-
-
-
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 }

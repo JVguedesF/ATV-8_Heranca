@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class cartaoRepository {
+public class CartaoRepository {
     public static List<Cartao> cartoes = new ArrayList<>();
 
     public static void cadastrarCartao(Cartao cartao){

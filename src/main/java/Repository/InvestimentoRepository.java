@@ -1,15 +1,16 @@
 package Repository;
 
-import Models.Investimento;
+import Models.*;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class InvetimentoRepository {
+public class InvestimentoRepository {
     public static List<Investimento> investimentos = new ArrayList<>();
 
-    public static void cadastrarInvest(Investimento investimento){
+    public static void cadastrarInvest(double valor, String data, String tipo, Usuario usuario) {
+        Investimento investimento = new Investimento(usuario, 0.0, data, tipo, valor);
         investimentos.add(investimento);
     }
 
@@ -53,6 +54,14 @@ public class InvetimentoRepository {
         System.out.println("Excluindo investimento com ID " + idInvestimento + "...");
         investimentos.removeIf(investimento -> investimento.getIdInvestimento() == idInvestimento);
         System.out.println("Investimento excluído com sucesso!");
+    }
+
+    public static double somarInvestimentos() {
+        double totalInvestido = 0;
+        for (Investimento investimento : investimentos) {
+            totalInvestido += investimento.getValor();
+        }
+        return totalInvestido;
     }
 
 }

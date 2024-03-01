@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class usuarioRepository {
+public class UsuarioRepository {
 
     public static List<Usuario> usuarios = new ArrayList<>();
 
@@ -14,9 +14,9 @@ public class usuarioRepository {
         usuarios.add(usuario);
     }
 
-    public static Usuario getUsuariobyID(long idUser) {
+    public static Usuario validarLogin(String login, String senha) {
         for (Usuario usuario : usuarios) {
-            if (usuario.getIdUser() == idUser) {
+            if (usuario.getNmUser().equals(login) && usuario.getNroSenha().equals(senha)) {
                 return usuario;
             }
         }
@@ -37,13 +37,12 @@ public class usuarioRepository {
 
     }
 
-    public static void atualizarUsuario(long idUser, String novoNroSenha, int novoNroFone, String novoEmail, float novoSaldo, double novaMetaInvestimento, int novoCpf) {
 
-        visualizarUsuario(usuarios);
+    public static void atualizarUsuario(String novoNroSenha, int novoNroFone, String novoEmail, float novoSaldo, int novoCpf) {
 
         Scanner scanner = new Scanner(System.in);
         for (Usuario usuario : usuarios) {
-            if (usuario.getIdUser() == idUser) {
+
                 usuario.setNroSenha(novoNroSenha);
                 usuario.setNroFone(novoNroFone);
                 usuario.setEmail(novoEmail);
@@ -54,7 +53,7 @@ public class usuarioRepository {
                 System.out.println();
                 return;
             }
-        }
+
     }
 
     public static void deletarUsuario(long idUser) {
@@ -71,4 +70,15 @@ public class usuarioRepository {
             System.out.println();
         }
     }
+
+    public static Usuario getUsuariobyID(long idUser) {
+        for (Usuario usuario : usuarios) {
+            if (usuario.getIdUser() == idUser) {
+                return usuario;
+            }
+        }
+        return null;
+    }
+
+
 }

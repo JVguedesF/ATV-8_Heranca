@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class despesaRepository {
+public class DespesaRepository {
     public static List<Despesa> despesas = new ArrayList<>();
 
     public static void cadastrarDespesa(double valor, String info, long idUsuario, String data) {

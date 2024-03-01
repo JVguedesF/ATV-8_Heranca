@@ -1,12 +1,15 @@
 package Models;
 
 public class Receita extends Transacao {
-    private static int idCounter = 1;
+
+    private static int idCounter = 0;
+
     private int idReceita;
     private Usuario usuario;
 
-    public Receita(double valor, String info, long idUsuario, String data) {
-        super(idCounter++, valor, info, idUsuario, data);
+    public Receita(double valor, String info, Usuario usuario, String data) {
+        super(idCounter++, valor, info, usuario.getIdUser(), data);
+        this.usuario = usuario;
         this.idReceita = idCounter;
     }
 
@@ -18,4 +21,11 @@ public class Receita extends Transacao {
         return usuario;
     }
 
+    public static int getIdCounter() {
+        return idCounter;
+    }
+
+    public static void setIdCounter(int idCounter) {
+        Receita.idCounter = idCounter;
+    }
 }
