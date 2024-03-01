@@ -9,11 +9,13 @@ import java.util.Scanner;
 public class CartaoRepository {
     public static List<Cartao> cartoes = new ArrayList<>();
 
-    public static void cadastrarCartao(Cartao cartao){
-        cartoes.add(cartao);
+    public static void cadastrarCartao(String numeroCartao, String bandeiraCartao, String vencimentoCartao) {
+        Cartao novoCartao = new Cartao(numeroCartao, bandeiraCartao, vencimentoCartao);
+        cartoes.add(novoCartao);
     }
 
-    public static void visualizarCartao(List<Cartao> cartoes) {
+
+    public static void visualizarCartao() {
         System.out.println("------ Lista de Cartões ------");
         for (Cartao cartao : cartoes) {
             System.out.println("Cartão " + cartao.getIdCartao() + ":");
@@ -25,10 +27,8 @@ public class CartaoRepository {
     }
 
 
-    public static void atualizarCartao(int idCartao, int numeroCartao, String bandeiraCartao, String vencimentoCartao) {
-
+    public static void atualizarCartao(int idCartao, String numeroCartao, String bandeiraCartao, String vencimentoCartao) {
         Scanner scanner = new Scanner(System.in);
-        visualizarCartao(cartoes);
 
         System.out.println("Atualizando cartão com ID " + idCartao + "...");
         for (Cartao cartao : cartoes) {
@@ -43,10 +43,10 @@ public class CartaoRepository {
         System.out.println("Cartão com ID " + idCartao + " não encontrado. Nenhuma atualização realizada.");
     }
 
+
     public static void deletarCartao(int idCartao) {
         Scanner scanner = new Scanner(System.in);
 
-        visualizarCartao(cartoes);
 
         System.out.println("Excluindo cartão com ID " + idCartao + "...");
         cartoes.removeIf(cartao -> cartao.getIdCartao() == idCartao);

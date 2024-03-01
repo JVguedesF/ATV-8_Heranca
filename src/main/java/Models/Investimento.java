@@ -61,7 +61,6 @@ public class Investimento {
         Investimento.idCounter = idCounter;
     }
 
-
     public Usuario getUsuario() {
         return usuario;
     }

@@ -1,13 +1,14 @@
 package Models;
 
 public class Cartao {
+    private static long idCounter = 0;
     private int idCartao;
-    private int numeroCartao;
+    private String numeroCartao;
     private String bandeiraCartao;
     private String vencimentoCartao;
 
-    public Cartao(int idCartao, int numeroCartao, String bandeiraCartao, String vencimentoCartao) {
-        this.idCartao = idCartao;
+    public Cartao(String numeroCartao, String bandeiraCartao, String vencimentoCartao) {
+        this.idCartao = (int) idCounter++;
         this.numeroCartao = numeroCartao;
         this.bandeiraCartao = bandeiraCartao;
         this.vencimentoCartao = vencimentoCartao;
@@ -21,11 +22,11 @@ public class Cartao {
         this.idCartao = idCartao;
     }
 
-    public int getNumeroCartao() {
+    public String getNumeroCartao() {
         return numeroCartao;
     }
 
-    public void setNumeroCartao(int numeroCartao) {
+    public void setNumeroCartao(String numeroCartao) {
         this.numeroCartao = numeroCartao;
     }
 

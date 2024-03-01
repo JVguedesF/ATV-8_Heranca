@@ -120,7 +120,7 @@ public class Fintech {
                 // Chamar método para lidar com despesas
                 break;
             case 6:
-                // Chamar método para lidar com cartões
+                telaCartao();
                 break;
             case 7:
                 UsuarioRepository.visualizarUsuario(UsuarioRepository.usuarios);
@@ -281,6 +281,70 @@ public class Fintech {
                 break;
         }
     }
+
+    public static void telaCartao() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("**************************************");
+        System.out.println("---------------Cartões----------------");
+        System.out.println("**************************************");
+        System.out.println("Escolha uma das opções para prosseguir!");
+        System.out.println("1 - Ver cartões");
+        System.out.println("2 - Adicionar cartão");
+        System.out.println("3 - Atualizar cartão");
+        System.out.println("4 - Excluir cartão");
+        System.out.println("5 - Tela Inicial");
+        System.out.println();
+        System.out.print("Escolha uma opção: ");
+        int opcao = scanner.nextInt();
+
+        switch (opcao) {
+            case 1:
+                CartaoRepository.visualizarCartao();
+                telaCartao();
+                break;
+            case 2:
+                System.out.print("Número do Cartão: ");
+                String numeroCartao = scanner.nextLine();
+                System.out.print("Bandeira do Cartão: ");
+                String bandeiraCartao = scanner.nextLine();
+                System.out.print("Vencimento do Cartão: ");
+                String vencimentoCartao = scanner.nextLine();
+                CartaoRepository.cadastrarCartao(numeroCartao, bandeiraCartao, vencimentoCartao);
+                System.out.println("Cartão cadastrado com sucesso!");
+                break;
+
+            case 3:
+                System.out.print("Digite o ID do cartão a ser atualizado: ");
+                int idCartaoAtualizar = scanner.nextInt();
+                scanner.nextLine();
+                System.out.print("Novo número do Cartão: ");
+                String novoNumeroCartao = scanner.nextLine();
+                System.out.print("Nova bandeira do Cartão: ");
+                String novaBandeiraCartao = scanner.nextLine();
+                System.out.print("Novo vencimento do Cartão: ");
+                String novoVencimentoCartao = scanner.nextLine();
+                CartaoRepository.atualizarCartao(idCartaoAtualizar, novoNumeroCartao, novaBandeiraCartao, novoVencimentoCartao);
+
+
+            case 4:
+                System.out.print("Digite o ID do cartão a ser excluído: ");
+                int idCartaoExcluir = scanner.nextInt();
+                scanner.nextLine();
+
+                CartaoRepository.deletarCartao(idCartaoExcluir);
+
+                telaCartao();
+                break;
+
+            case 5:
+                telaInicial(scanner);
+                break;
+            default:
+                System.out.println("Opção inválida. Por favor, escolha uma opção válida.");
+                break;
+        }
+    }
+
 
 
 }
