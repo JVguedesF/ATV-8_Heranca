@@ -1,17 +1,17 @@
 package Models;
 
 public class Cartao {
-    private static long idCounter = 0;
+    private int idCounter = 0;
     private int idCartao;
     private String numeroCartao;
-    private String bandeiraCartao;
     private String vencimentoCartao;
+    private double saldoDevido;
 
     public Cartao(String numeroCartao, String bandeiraCartao, String vencimentoCartao) {
-        this.idCartao = (int) idCounter++;
+        this.idCartao = idCounter++;
         this.numeroCartao = numeroCartao;
-        this.bandeiraCartao = bandeiraCartao;
         this.vencimentoCartao = vencimentoCartao;
+        this.saldoDevido = 0.0;
     }
 
     public int getIdCartao() {
@@ -30,11 +30,12 @@ public class Cartao {
         this.numeroCartao = numeroCartao;
     }
 
-    public String getBandeiraCartao() {
-        return bandeiraCartao;
+    public double getSaldoDevido() {
+        return saldoDevido;
     }
-    public void setBandeiraCartao(String bandeiraCartao) {
-        this.bandeiraCartao = bandeiraCartao;
+
+    public void setSaldoDevido(double saldoDevido) {
+        this.saldoDevido = saldoDevido;
     }
 
     public String getVencimentoCartao() {
@@ -45,4 +46,7 @@ public class Cartao {
         this.vencimentoCartao = vencimentoCartao;
     }
 
+    public void fazerPagamento(double valor){
+        saldoDevido -= valor;
+    }
 }
