@@ -1,12 +1,13 @@
 package Repository;
 
-import Models.Transacao;
+import Models.*;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class TransacaoRepository {
+    /*
     public static List<Transacao> transacoes = new ArrayList<>();
     public static void cadastrarTransacao(Transacao transacao) {
         transacoes.add(transacao);
@@ -50,4 +51,6 @@ public class TransacaoRepository {
         transacoes.removeIf(transacao -> transacao.getIdTransacao() == idTransacao);
         System.out.println("Transação excluída com sucesso!");
     }
+
+     */
 }

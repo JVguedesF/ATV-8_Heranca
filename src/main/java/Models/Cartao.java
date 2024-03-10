@@ -1,13 +1,16 @@
 package Models;
 
+import java.time.LocalDate;
+
+
 public class Cartao {
-    private int idCounter = 0;
+    private static int idCounter = 0;
     private int idCartao;
     private String numeroCartao;
-    private String vencimentoCartao;
+    private LocalDate vencimentoCartao;
     private double saldoDevido;
 
-    public Cartao(String numeroCartao, String bandeiraCartao, String vencimentoCartao) {
+    public Cartao(String numeroCartao, LocalDate vencimentoCartao) {
         this.idCartao = idCounter++;
         this.numeroCartao = numeroCartao;
         this.vencimentoCartao = vencimentoCartao;
@@ -16,10 +19,6 @@ public class Cartao {
 
     public int getIdCartao() {
         return idCartao;
-    }
-
-    public void setIdCartao(int idCartao) {
-        this.idCartao = idCartao;
     }
 
     public String getNumeroCartao() {
@@ -38,15 +37,15 @@ public class Cartao {
         this.saldoDevido = saldoDevido;
     }
 
-    public String getVencimentoCartao() {
+    public LocalDate getVencimentoCartao() {
         return vencimentoCartao;
     }
 
-    public void setVencimentoCartao(String vencimentoCartao) {
+    public void setVencimentoCartao(LocalDate vencimentoCartao) {
         this.vencimentoCartao = vencimentoCartao;
     }
 
-    public void fazerPagamento(double valor){
+    public void fazerPagamento(double valor) {
         saldoDevido -= valor;
     }
 }

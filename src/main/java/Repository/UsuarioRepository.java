@@ -5,7 +5,7 @@ import Models.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
+/*
 public class UsuarioRepository {
 
     public static List<Usuario> usuarios = new ArrayList<>();
@@ -82,3 +82,4 @@ public class UsuarioRepository {
 
 
 }
+*/

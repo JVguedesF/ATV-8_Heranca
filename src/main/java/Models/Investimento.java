@@ -1,29 +1,31 @@
 package Models;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.temporal.ChronoUnit;
+import java.util.concurrent.TimeUnit;
+
 public class Investimento {
-    private static long idCounter = 0;
+    private static int idCounter = 0;
     private int idInvestimento;
     private double totalInvestimento;
-    private Usuario usuario;
-    private String data;
     private String tipo;
-    private double valor;
+    private double metaInvestimento;
+    private LocalDate dataResgate;
+    private double taxaMensal;
 
-    public Investimento(Usuario usuario, double totalInvestimento, String data, String tipo, double valor){
-        this.idInvestimento = (int) idCounter++;
+    public Investimento(double totalInvestimento, String tipo, double metaInvestimento, LocalDate dataResgate, double mediaJurosMensal) {
+        this.idInvestimento = idCounter++;
         this.totalInvestimento = totalInvestimento;
-        this.usuario = usuario;
-        this.data = data;
         this.tipo = tipo;
-        this.valor = valor;
+        this.metaInvestimento = metaInvestimento;
+        this.dataResgate = dataResgate;
+        this.taxaMensal = mediaJurosMensal;
     }
 
     public int getIdInvestimento() {
         return idInvestimento;
-    }
-
-    public void setIdInvestimento(int idInvestimento) {
-        this.idInvestimento = idInvestimento;
     }
 
     public double getTotalInvestimento() {
@@ -34,38 +36,46 @@ public class Investimento {
         this.totalInvestimento = totalInvestimento;
     }
 
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
-    }
-
     public String getTipo() {
         return tipo;
     }
+
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
-    public double getValor() {
-        return valor;
+    public double getMetaInvestimento() {
+        return metaInvestimento;
     }
 
-    public void setValor(double valor) {
-        this.valor = valor;
+    public void setMetaInvestimento(double metaInvestimento) {
+        this.metaInvestimento = metaInvestimento;
     }
 
-    public static void setIdCounter(long idCounter) {
-        Investimento.idCounter = idCounter;
+    public LocalDate getMetaData() {
+        return dataResgate;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public void setMetaData(LocalDate metaData) {
+        this.dataResgate = metaData;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public double getMediaJurosMensal() {
+        return taxaMensal;
+    }
+
+    public void setMediaJurosMensal(double mediaJurosMensal) {
+        this.taxaMensal = mediaJurosMensal;
+    }
+
+    public double calcAporteMensal() {
+        long periodoEmMeses = mesesEntreHojeEMetaData();
+        return (metaInvestimento - totalInvestimento) * taxaMensal / (Math.pow(1 + taxaMensal, periodoEmMeses) - 1);
+    }
+
+    private long mesesEntreHojeEMetaData(){
+        LocalDate dataAtual = LocalDate.now();
+        long diferencaMeses = ChronoUnit.MONTHS.between(dataAtual, dataResgate);
+        return diferencaMeses;
     }
 }

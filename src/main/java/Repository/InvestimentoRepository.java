@@ -5,7 +5,7 @@ import Models.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
+/*
 public class InvestimentoRepository {
     public static List<Investimento> investimentos = new ArrayList<>();
 
@@ -65,3 +65,4 @@ public class InvestimentoRepository {
     }
 
 }
+*/

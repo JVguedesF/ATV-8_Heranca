@@ -1,101 +1,96 @@
 package Models;
 
+import java.time.LocalDate;
+import java.util.List;
+
 public class Usuario {
-    private static long idCounter = 1;
-    private long idUser;
-    private String nmUser;
-    private String nroSenha;
-    private int nroFone;
+    private static int idCounter = 1;
+    private int idUser;
+    private String nome;
+    private String senha;
+    private String telefone;
     private String email;
-    private float saldo;
-    private int cpf;
+    private double saldo = 0.0;
+    private String cpf;
+
+    private List<Investimento> investimentos;
+    private List<Cartao> cartoes;
 
 
-    public Usuario(String nmUser, String nroSenha, int nroFone, String email, float saldo, int cpf) {
-        this.cpf = cpf;
+    public Usuario(String nome, String senha, String telefone, String email,  String cpf) {
         this.idUser = idCounter++;
-        this.nmUser = nmUser;
-        this.nroSenha = nroSenha;
-        this.nroFone = nroFone;
+        this.nome = nome;
+        this.senha = senha;
+        this.telefone = telefone;
         this.email = email;
-        this.saldo = saldo;
+        this.cpf = cpf;
     }
 
-    public void atualizarInformacoes(String novoNroSenha, int novoNroFone, String novoEmail, float novoSaldo, int novoCpf) {
-        this.nroSenha = novoNroSenha;
-        this.nroFone = novoNroFone;
-        this.email = novoEmail;
-        this.saldo = novoSaldo;
-        this.cpf = novoCpf;
+    public void atualizarTodasInformacoes(String senha, String telefone, String email) {
+        this.senha = senha;
+        this.telefone = telefone;
+        this.email = email;
     }
 
-
-    public long getIdUser() {
-        return idUser;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public void setIdUser(long idUser) {
-        this.idUser = idUser;
-    }
-    public String getNmUser() {
-        return nmUser;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
-    public void setNmUser(String nmUser) {
-        this.nmUser = nmUser;
-    }
-
-    public String getNroSenha() {
-        return nroSenha;
-    }
-
-    public void setNroSenha(String nroSenha) {
-        this.nroSenha = nroSenha;
-    }
-
-    public int getNroFone() {
-        return nroFone;
-    }
-
-    public void setNroFone(int nroFone) {
-        this.nroFone = nroFone;
-    }
-
-    public String getEmail() {
-        return email;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public float getSaldo() {
-        return saldo;
-    }
-
-    public void setSaldo(float saldo) {
+    public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
 
-    public int getCpf() {
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
-        this.cpf = cpf;
+    public void adicionarInvestimento(double valor, String nome, double metaValor, LocalDate dataResgate, double mediaJurosMensal) {
+        Investimento invest = new Investimento(valor, nome, metaValor, dataResgate, mediaJurosMensal);
+        this.investimentos.add(invest);
     }
 
-    public static void setIdCounter(long idCounter) {
-        Usuario.idCounter = idCounter;
+    public void adicionarCartao(String numeroCartao) {
+        LocalDate dataAtual = LocalDate.now();
+        LocalDate vencimento = dataAtual.plusYears(5);
+        Cartao cartao = new Cartao(numeroCartao, vencimento);
+        this.cartoes.add(cartao);
     }
 
-    public void atualizarUsuario(String novoNroSenha, int novoNroFone, String novoEmail, float novoSaldo, int novoCpf) {
-        this.nroSenha = novoNroSenha;
-        this.nroFone = novoNroFone;
-        this.email = novoEmail;
-        this.saldo = novoSaldo;
-
-        this.cpf = novoCpf;
-    }
-
+    //Falta criar getInvestimentos e getCartoes
 }

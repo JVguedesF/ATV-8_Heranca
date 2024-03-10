@@ -1,11 +1,19 @@
-import Repository.*;
-import Models.*;
-import java.util.Scanner;
+import Models.Cartao;
+import Models.Investimento;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
 
 public class Fintech {
-
-    private static Usuario usuarioLogado;
     public static void main(String[] args) {
+           Investimento invest1 = new Investimento(0.0, "ação", 1331, LocalDate.of(2025, 3, 9), 0.01);
+           double calc1 = invest1.calcAporteMensal();
+           System.out.println(calc1);
+    }
+    /*
+    public static void main_(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
@@ -344,7 +352,6 @@ public class Fintech {
                 break;
         }
     }
-
-
+*/
 
 }
