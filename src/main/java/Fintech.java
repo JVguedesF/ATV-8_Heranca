@@ -1,16 +1,28 @@
-import Models.Cartao;
-import Models.Investimento;
+import Models.*;
+import Repository.*;
+import Enum.*;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
-
 
 public class Fintech {
     public static void main(String[] args) {
-           Investimento invest1 = new Investimento(0.0, "ação", 1331, LocalDate.of(2025, 3, 9), 0.01);
-           double calc1 = invest1.calcAporteMensal();
-           System.out.println(calc1);
+        Transacao t1 = new Transacao(1, TipoTransacao.SAIDA, LocalDate.of(2024, 03, 11), 50.0 );
+        Transacao t2 = new Transacao(1, TipoTransacao.ENTRADA, LocalDate.of(2024, 03, 11), 100 );
+
+        TransacaoCartao tc1 = new TransacaoCartao(1, 1,TipoTransacao.SAIDA, LocalDate.of(2024, 03, 11), 100, LocalDate.of(2024, 04, 11));
+        TransacaoCartao tc2 = new TransacaoCartao(1, 1, TipoTransacao.SAIDA, LocalDate.of(2024, 03, 11), 100, LocalDate.of(2024, 04, 11));
+        TransacaoCartao tc3 = new TransacaoCartao(1, 2, TipoTransacao.SAIDA, LocalDate.of(2024, 03, 11), 100, LocalDate.of(2024, 04, 11));
+
+        TransacaoRepository.adicionarTransacao(t1);
+        TransacaoRepository.adicionarTransacao(t2);
+        TransacaoRepository.adicionarTransacao(tc1);
+        TransacaoRepository.adicionarTransacao(tc2);
+        TransacaoRepository.adicionarTransacao(tc3);
+
+        TransacaoRepository.getTransacoes();
+        TransacaoRepository.atualizarTransacao(3, 99, TipoTransacao.SAIDA, LocalDate.of(2025, 05, 11));
+        System.out.println("-----");
+        TransacaoRepository.getTransacoes();
     }
     /*
     public static void main_(String[] args) {

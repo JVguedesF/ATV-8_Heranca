@@ -2,6 +2,7 @@ package Models;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Scanner;
 
 public class Usuario {
     private static int idCounter = 1;
@@ -92,5 +93,75 @@ public class Usuario {
         this.cartoes.add(cartao);
     }
 
-    //Falta criar getInvestimentos e getCartoes
+    public void getCartoes() {
+        System.out.println("------ Lista de Cartões ------");
+        for (Cartao cartao : cartoes) {
+            System.out.println("Cartão " + cartao.getIdCartao() + ":");
+            System.out.println("Número do Cartão: " + cartao.getNumeroCartao());
+            System.out.println("Vencimento do Cartão: " + cartao.getVencimentoCartao());
+            System.out.println();
+        }
+    }
+
+    public void atualizarCartao(int idCartao, String numeroCartao,  LocalDate vencimentoCartao) {
+        System.out.println("Atualizando cartão com ID " + idCartao + "...");
+        for (Cartao cartao : cartoes) {
+            if (cartao.getIdCartao() == idCartao) {
+                cartao.setNumeroCartao(numeroCartao);
+                cartao.setVencimentoCartao(vencimentoCartao);
+                System.out.println("Cartão atualizado com sucesso!");
+                return;
+            }
+        }
+        System.out.println("Cartão com ID " + idCartao + " não encontrado. Nenhuma atualização realizada.");
+    }
+
+    public void deletarCartao(int idCartao) {
+        System.out.println("Excluindo cartão com ID " + idCartao + "...");
+        cartoes.removeIf(cartao -> cartao.getIdCartao() == idCartao);
+        System.out.println("Cartão excluído com sucesso!");
+    }
+
+    public static void getInvestimentos(List<Investimento> investimentos) {
+        System.out.println("------ Lista de Investimentos ------");
+        for (Investimento investimento : investimentos) {
+            System.out.println("Investimento " + investimento.getIdInvestimento() + ":");
+            System.out.println("Total do Investimento: " + investimento.getTotalInvestimento());
+            System.out.println("Tipo: " + investimento.getTipo());
+            System.out.println("Meta: " + investimento.getMetaInvestimento());
+            System.out.println("Data de Resgate: " + investimento.getDataResgate());
+            System.out.println("Taxa Mensal: " + investimento.getTaxaMensal());
+            System.out.println();
+        }
+    }
+
+    public void atualizarInvestimento(int idInvestimento, double totalInvestimento, String tipo, double metaInvestimento, LocalDate dataResgate, double mediaJurosMensal) {
+        System.out.println("Atualizando investimento com ID " + idInvestimento + "...");
+        for (Investimento investimento : investimentos) {
+            if (investimento.getIdInvestimento() == idInvestimento) {
+                investimento.setTotalInvestimento(totalInvestimento);
+                investimento.setTipo(tipo);
+                investimento.setMetaInvestimento(metaInvestimento);
+                investimento.setMetaData(dataResgate);
+                investimento.setMediaJurosMensal(mediaJurosMensal);
+                System.out.println("Investimento atualizado com sucesso!");
+                return;
+            }
+        }
+        System.out.println("Investimento com ID " + idInvestimento + " não encontrado. Nenhuma atualização realizada.");
+    }
+
+    public void deletarInvestimento(int idInvestimento) {
+        System.out.println("Excluindo investimento com ID " + idInvestimento + "...");
+        investimentos.removeIf(investimento -> investimento.getIdInvestimento() == idInvestimento);
+        System.out.println("Investimento excluído com sucesso!");
+    }
+
+    public double somarInvestimentos() {
+        double totalInvestido = 0;
+        for (Investimento investimento : investimentos) {
+            totalInvestido += investimento.getTotalInvestimento();
+        }
+        return totalInvestido;
+    }
 }

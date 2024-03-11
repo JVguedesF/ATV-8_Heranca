@@ -1,5 +1,7 @@
 package Models;
 
+import Repository.TransacaoRepository;
+
 import java.time.LocalDate;
 
 
@@ -45,7 +47,11 @@ public class Cartao {
         this.vencimentoCartao = vencimentoCartao;
     }
 
-    public void fazerPagamento(double valor) {
-        saldoDevido -= valor;
+    public static void gerarFatura(int idCartao) {
+       TransacaoRepository.mostrarExtratoCartao();
+       double valorFatura = TransacaoRepository.calcularSomatorioTransacoesCartao(idCartao);
+
+       System.out.println("Valor da Fatura R$" + valorFatura);
+
     }
 }

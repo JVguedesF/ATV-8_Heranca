@@ -4,16 +4,16 @@ import Models.Usuario;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-/*
+
 public class UsuarioRepository {
 
     public static List<Usuario> usuarios = new ArrayList<>();
 
-    public static void cadastrarUser(Usuario usuario) {
+    public static void cadastrarUsuario(Usuario usuario) {
         usuarios.add(usuario);
     }
 
+    /*
     public static Usuario validarLogin(String login, String senha) {
         for (Usuario usuario : usuarios) {
             if (usuario.getNmUser().equals(login) && usuario.getNroSenha().equals(senha)) {
@@ -22,64 +22,60 @@ public class UsuarioRepository {
         }
         return null;
     }
+     */
 
-    public static void visualizarUsuario(List<Usuario> usuarios){
+    public static void visualizarUsuario(List<Usuario> usuarios) {
         System.out.println("------ Informação de Perfil ------");
-        for (Usuario usuario : usuarios){
+        for (Usuario usuario : usuarios) {
             System.out.println("ID: " + usuario.getIdUser());
-            System.out.println("Nome: " + usuario.getNmUser());
+            System.out.println("Nome: " + usuario.getNome());
             System.out.println("Cpf: " + usuario.getCpf());
             System.out.println("Email: " + usuario.getEmail());
-            System.out.println("Senha: " + usuario.getNroSenha());
-            System.out.println("Telefone: " + usuario.getNroFone());
+            System.out.println("Senha: " + usuario.getSenha());
+            System.out.println("Telefone: " + usuario.getTelefone());
+            System.out.println("Saldo: R$" + usuario.getSaldo());
             System.out.println();
         }
 
     }
 
 
-    public static void atualizarUsuario(String novoNroSenha, int novoNroFone, String novoEmail, float novoSaldo, int novoCpf) {
-
-        Scanner scanner = new Scanner(System.in);
+    public static void atualizarUsuario(String novoNroSenha, String novoNroFone, String novoEmail, double novoSaldo) {
         for (Usuario usuario : usuarios) {
-
-                usuario.setNroSenha(novoNroSenha);
-                usuario.setNroFone(novoNroFone);
-                usuario.setEmail(novoEmail);
-                usuario.setSaldo(novoSaldo);
-                usuario.setCpf(novoCpf);
-                System.out.println();
-                System.out.println("Usuario atualizado com sucesso!");
-                System.out.println();
-                return;
-            }
+            usuario.setSenha(novoNroSenha);
+            usuario.setTelefone(novoNroFone);
+            usuario.setEmail(novoEmail);
+            usuario.setSaldo(novoSaldo);
+            System.out.println();
+            System.out.println("Usuario atualizado com sucesso!");
+            System.out.println();
+            return;
+        }
 
     }
 
-    public static void deletarUsuario(long idUser) {
-        Scanner scanner = new Scanner(System.in);
+    public static void deletarUsuario(int idUser) {
         usuarios.removeIf(usuario -> usuario.getIdUser() == idUser);
         System.out.println("Usuario excluido!");
     }
 
-    public static void visualizarNomeESaldo() {
-        System.out.println("---------Seu saldo:---------");
-        for (Usuario usuario : usuarios) {
-            System.out.println("Nome: " + usuario.getNmUser());
-            System.out.println("Saldo: " + usuario.getSaldo());
-            System.out.println();
-        }
-    }
 
-    public static Usuario getUsuariobyID(long idUser) {
+    public static Usuario getUsuariobyID(int idUser) {
         for (Usuario usuario : usuarios) {
             if (usuario.getIdUser() == idUser) {
-                return usuario;
+                System.out.println("ID: " + usuario.getIdUser());
+                System.out.println("Nome: " + usuario.getNome());
+                System.out.println("Cpf: " + usuario.getCpf());
+                System.out.println("Email: " + usuario.getEmail());
+                System.out.println("Senha: " + usuario.getSenha());
+                System.out.println("Telefone: " + usuario.getTelefone());
+                System.out.println("Saldo: R$" + usuario.getSaldo());
+                System.out.println();
             }
         }
+
         return null;
     }
 
 
 }
-*/

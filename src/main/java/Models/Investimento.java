@@ -44,6 +44,14 @@ public class Investimento {
         this.tipo = tipo;
     }
 
+    public LocalDate getDataResgate() {
+        return dataResgate;
+    }
+
+    public double getTaxaMensal() {
+        return taxaMensal;
+    }
+
     public double getMetaInvestimento() {
         return metaInvestimento;
     }

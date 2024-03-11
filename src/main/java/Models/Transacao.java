@@ -4,7 +4,7 @@ import Enum.TipoTransacao;
 
 import java.time.LocalDate;
 
-abstract class Transacao {
+public class Transacao {
     protected static int idCounter = 1;
     protected int idTransacao;
     protected int idUsuario;
@@ -73,10 +73,10 @@ abstract class Transacao {
     public String gerarComprovante() {
         String operacao = (tipo == TipoTransacao.ENTRADA) ? "+" : "-";
 
-        String comprovante = "Transação nº:" + idTransacao + "Usuário nº: " + idUsuario + "\n";
+        String comprovante = "Transação nº:" + idTransacao + "\t\t Usuário nº: " + idUsuario + "\n";
         comprovante += "Data: " + data + "\t\t" + "Tipo: " + tipo + "\n";
         comprovante += "Valor: " + operacao + "R$" + valor + "\n";
-        comprovante += "Descrição: " + info;
+        comprovante += "Descrição: " + info + "\n";
 
         return comprovante;
     }
