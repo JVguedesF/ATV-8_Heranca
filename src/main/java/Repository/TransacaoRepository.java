@@ -33,7 +33,7 @@ public class TransacaoRepository {
         }
     }
 
-    public static void getTransacoes() {
+    public static void visualizarTransacoes() {
         for (Transacao transacao : transacoes) {
             String dados = "idTransacao: " + transacao.getIdTransacao() + "\n";
             dados += "idUsuario: " + transacao.getIdUsuario() + "\n";

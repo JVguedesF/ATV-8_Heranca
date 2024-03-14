@@ -19,10 +19,10 @@ public class Fintech {
         TransacaoRepository.adicionarTransacao(tc2);
         TransacaoRepository.adicionarTransacao(tc3);
 
-        TransacaoRepository.getTransacoes();
+        TransacaoRepository.visualizarTransacoes();
         TransacaoRepository.atualizarTransacao(3, 99, TipoTransacao.SAIDA, LocalDate.of(2025, 05, 11));
         System.out.println("-----");
-        TransacaoRepository.getTransacoes();
+        TransacaoRepository.visualizarTransacoes();
     }
     /*
     public static void main_(String[] args) {

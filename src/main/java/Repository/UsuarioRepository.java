@@ -33,22 +33,19 @@ public class UsuarioRepository {
             System.out.println("Email: " + usuario.getEmail());
             System.out.println("Senha: " + usuario.getSenha());
             System.out.println("Telefone: " + usuario.getTelefone());
-            System.out.println("Saldo: R$" + usuario.getSaldo());
-            System.out.println();
+            System.out.println("Saldo: R$" + usuario.getSaldo() + "\n");
         }
 
     }
 
 
-    public static void atualizarUsuario(String novoNroSenha, String novoNroFone, String novoEmail, double novoSaldo) {
+    public static void atualizarUsuario(String novaSenha, String novoTelefone, String novoEmail, double novoSaldo) {
         for (Usuario usuario : usuarios) {
-            usuario.setSenha(novoNroSenha);
-            usuario.setTelefone(novoNroFone);
+            usuario.setSenha(novaSenha);
+            usuario.setTelefone(novoTelefone);
             usuario.setEmail(novoEmail);
             usuario.setSaldo(novoSaldo);
-            System.out.println();
-            System.out.println("Usuario atualizado com sucesso!");
-            System.out.println();
+            System.out.println("\nUsuario atualizado com sucesso!\n");
             return;
         }
 
@@ -69,8 +66,7 @@ public class UsuarioRepository {
                 System.out.println("Email: " + usuario.getEmail());
                 System.out.println("Senha: " + usuario.getSenha());
                 System.out.println("Telefone: " + usuario.getTelefone());
-                System.out.println("Saldo: R$" + usuario.getSaldo());
-                System.out.println();
+                System.out.println("Saldo: R$" + usuario.getSaldo() + "\n");
             }
         }
 
