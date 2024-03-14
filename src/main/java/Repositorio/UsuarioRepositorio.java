@@ -1,11 +1,11 @@
-package Repository;
+package Repositorio;
 
 import Models.Usuario;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsuarioRepository {
+public class UsuarioRepositorio {
 
     public static List<Usuario> usuarios = new ArrayList<>();
 
@@ -13,21 +13,10 @@ public class UsuarioRepository {
         usuarios.add(usuario);
     }
 
-    /*
-    public static Usuario validarLogin(String login, String senha) {
-        for (Usuario usuario : usuarios) {
-            if (usuario.getNmUser().equals(login) && usuario.getNroSenha().equals(senha)) {
-                return usuario;
-            }
-        }
-        return null;
-    }
-     */
-
     public static void visualizarUsuario(List<Usuario> usuarios) {
         System.out.println("------ Informação de Perfil ------");
         for (Usuario usuario : usuarios) {
-            System.out.println("ID: " + usuario.getIdUser());
+            System.out.println("ID: " + usuario.getIdUsuario());
             System.out.println("Nome: " + usuario.getNome());
             System.out.println("Cpf: " + usuario.getCpf());
             System.out.println("Email: " + usuario.getEmail());
@@ -52,15 +41,15 @@ public class UsuarioRepository {
     }
 
     public static void deletarUsuario(int idUser) {
-        usuarios.removeIf(usuario -> usuario.getIdUser() == idUser);
+        usuarios.removeIf(usuario -> usuario.getIdUsuario() == idUser);
         System.out.println("Usuario excluido!");
     }
 
 
     public static Usuario getUsuariobyID(int idUser) {
         for (Usuario usuario : usuarios) {
-            if (usuario.getIdUser() == idUser) {
-                System.out.println("ID: " + usuario.getIdUser());
+            if (usuario.getIdUsuario() == idUser) {
+                System.out.println("ID: " + usuario.getIdUsuario());
                 System.out.println("Nome: " + usuario.getNome());
                 System.out.println("Cpf: " + usuario.getCpf());
                 System.out.println("Email: " + usuario.getEmail());

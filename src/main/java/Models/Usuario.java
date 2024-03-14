@@ -2,11 +2,10 @@ package Models;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Scanner;
 
 public class Usuario {
     private static int idCounter = 1;
-    private int idUser;
+    private int idUsuario;
     private String nome;
     private String senha;
     private String telefone;
@@ -19,7 +18,7 @@ public class Usuario {
 
 
     public Usuario(String nome, String senha, String telefone, String email,  String cpf) {
-        this.idUser = idCounter++;
+        this.idUsuario = idCounter++;
         this.nome = nome;
         this.senha = senha;
         this.telefone = telefone;
@@ -53,8 +52,8 @@ public class Usuario {
         this.saldo = saldo;
     }
 
-    public int getIdUser() {
-        return idUser;
+    public int getIdUsuario() {
+        return idUsuario;
     }
 
     public String getNome() {

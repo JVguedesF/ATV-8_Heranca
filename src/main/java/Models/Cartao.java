@@ -1,6 +1,6 @@
 package Models;
 
-import Repository.TransacaoRepository;
+import Repositorio.TransacaoRepositorio;
 
 import java.time.LocalDate;
 
@@ -48,8 +48,8 @@ public class Cartao {
     }
 
     public static void gerarFatura(int idCartao) {
-       TransacaoRepository.mostrarExtratoCartao();
-       double valorFatura = TransacaoRepository.calcularSomatorioTransacoesCartao(idCartao);
+       TransacaoRepositorio.mostrarExtratoCartao();
+       double valorFatura = TransacaoRepositorio.calcularSomatorioTransacoesCartao(idCartao);
 
        System.out.println("Valor da Fatura R$" + valorFatura);
 

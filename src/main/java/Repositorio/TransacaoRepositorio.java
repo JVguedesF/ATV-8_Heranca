@@ -1,4 +1,4 @@
-package Repository;
+package Repositorio;
 
 import Models.*;
 import Enum.*;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class TransacaoRepository {
+public class TransacaoRepositorio {
 
     public static List<Transacao> transacoes = new ArrayList<>();
 
